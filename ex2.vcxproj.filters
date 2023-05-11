@@ -21,12 +21,18 @@
     <ClCompile Include="ex2\utilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex2\Card.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ex2\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ex2\utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2\Card.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
