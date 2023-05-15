@@ -100,12 +100,12 @@ public:
 	bool pay(const int coins);
 
 private: 
-	char* name;
-	int maxHp;
-	int healthPoints;
-	int force;
-	int level;
-	int coins;
+	char* m_name;
+	int m_maxHp;
+	int m_healthPoints;
+	int m_force;
+	int m_level;
+	int m_coins;
 };
 
 
