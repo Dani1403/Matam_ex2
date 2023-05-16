@@ -32,37 +32,37 @@ Player& Player::operator=(const Player& other)
 
 Player::~Player()
 {
-	delete[] this->m_name;
+	delete[] m_name;
 }
 
 void Player::printInfo() const
 {
-	printPlayerInfo(this->m_name, this->m_level, this->m_force, this->m_healthPoints, this->m_coins);
+	printPlayerInfo(m_name, m_level, m_force, m_healthPoints, m_coins);
 }
 
 void Player::levelUp()
 {
-	this->m_level++;
+	m_level++;
 }
 
-int Player::getLevel()
+int Player::getLevel() const 
 {
-	return this->m_level;
+	return m_level;
 }
 
 void Player::buff(const int force)
 {
-	this->m_force += force;
+	m_force += force;
 }
 
 void Player::heal(const int hp)
 {
 	if (hp > 0)
 	{
-		this->m_healthPoints += hp;
-		if (this->m_healthPoints > this->m_maxHp)
+		m_healthPoints += hp;
+		if (m_healthPoints > m_maxHp)
 		{
-			this->m_healthPoints = this->m_maxHp;
+			m_healthPoints = m_maxHp;
 		}
 	}
 }
@@ -71,32 +71,32 @@ void Player::damage(const int hp)
 {
 	if (hp > 0)
 	{
-		this->m_healthPoints -= hp;
-		if (this->m_healthPoints < 0)
+		m_healthPoints -= hp;
+		if (m_healthPoints < 0)
 		{
-			this->m_healthPoints = 0;
+			m_healthPoints = 0;
 		}
 	}
 }
 
 bool Player::isKnockedOut() const
 {
-	return this->m_healthPoints == 0;
+	return m_healthPoints == 0;
 }
 
 void Player::addCoins(const int coins)
 {
 	if (coins > 0)
 	{
-		this->m_coins += coins;
+		m_coins += coins;
 	}
 }
 
 bool Player::pay(const int coins)
 {
-	if (coins > 0 && this->m_coins >= coins)
+	if (coins > 0 && m_coins >= coins)
 	{
-		this->m_coins -= coins;
+		m_coins -= coins;
 		return true;
 	}
 	return false;
@@ -104,5 +104,5 @@ bool Player::pay(const int coins)
 
 int Player::getAttackStrength() const
 {
-	return this->m_force + this->m_level;
+	return m_force + m_level;
 }

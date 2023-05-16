@@ -53,7 +53,7 @@ public:
 	* @return
 	*      The level of the player.
 	*/
-	int getLevel();
+	int getLevel() const;
 
 	/*
 	* Calculates the attack strength of the player

@@ -5,39 +5,39 @@ Card::Card(CardType type, const CardStats& stats) : m_effect(type), m_stats(stat
 void Card::applyEncounter(Player& player) const
 {
 	int playerAttack = player.getAttackStrength();
-	switch (this->m_effect)
+	switch (m_effect)
 	{
 		case CardType::Battle:
-			printBattleCardInfo(this->m_stats);
-			if (playerAttack >= this->m_stats.force)
+			printBattleCardInfo(m_stats);
+			if (playerAttack >= m_stats.force)
 			{
 				player.levelUp();
-				player.addCoins(this->m_stats.loot);
+				player.addCoins(m_stats.loot);
 				printBattleResult(true);
 			}
 			else
 			{
-				player.damage(this->m_stats.hpLossOnDefeat);
+				player.damage(m_stats.hpLossOnDefeat);
 				printBattleResult(false);
 			}
 			break;
 		case CardType::Buff:
-			printBuffCardInfo(this->m_stats);
-			if (player.pay(this->m_stats.cost))
+			printBuffCardInfo(m_stats);
+			if (player.pay(m_stats.cost))
 			{
-				player.buff(this->m_stats.buff);
+				player.buff(m_stats.buff);
 			}
 			break;
 		case CardType::Heal:
-			printHealCardInfo(this->m_stats);
-			if (player.pay(this->m_stats.cost))
+			printHealCardInfo(m_stats);
+			if (player.pay(m_stats.cost))
 			{
-				player.heal(this->m_stats.heal);
+				player.heal(m_stats.heal);
 			}
 			break;
 		case CardType::Treasure:
-			printTreasureCardInfo(this->m_stats);
-			player.addCoins(this->m_stats.loot);
+			printTreasureCardInfo(m_stats);
+			player.addCoins(m_stats.loot);
 			break;
 		default:
 			break;
@@ -46,19 +46,19 @@ void Card::applyEncounter(Player& player) const
 
 void Card::printInfo() const
 {
-	switch (this->m_effect)
+	switch (m_effect)
 	{
 		case CardType::Battle:
-			printBattleCardInfo(this->m_stats);
+			printBattleCardInfo(m_stats);
 			break;
 		case CardType::Buff:
-			printBuffCardInfo(this->m_stats);
+			printBuffCardInfo(m_stats);
 			break;
 		case CardType::Heal:
-			printHealCardInfo(this->m_stats);
+			printHealCardInfo(m_stats);
 			break;
 		case CardType::Treasure:
-			printTreasureCardInfo(this->m_stats);
+			printTreasureCardInfo(m_stats);
 			break;
 		default:
 			break;
@@ -84,6 +84,6 @@ int main()
 	player.printInfo();
 	Card card4(CardType::Treasure, stats);
 	card4.applyEncounter(player);
-	player.printInfo();
+	player.printInfo();	
 	return 0;
 }
