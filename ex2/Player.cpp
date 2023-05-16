@@ -106,35 +106,3 @@ int Player::getAttackStrength() const
 {
 	return this->m_force + this->m_level;
 }
-
-int main()
-{
-	Player player2("Gandalf", 300);
-	std::cout << "Player 2 created successfully\n" << std::endl;
-	player2.printInfo();
-	player2.levelUp();
-	player2.buff(1);
-	player2.heal(10);
-	player2.damage(20);
-	if (player2.isKnockedOut())
-	{
-		std::cout << "Player 2 is knocked out" << std::endl;
-	}
-	else
-	{
-		std::cout << "Player 2 is not knocked out" << std::endl;
-	}
-	player2.addCoins(100);
-	if (!player2.pay(10))
-	{
-		std::cout << "Player 2 doesn't have enough coins to pay" << std::endl;
-	}
-	else
-	{
-		std::cout << "Player 2 paid successfully" << std::endl;
-	}
-	std::cout << "the player's level is: " << player2.getLevel() << std::endl;
-	std::cout << "the player's attack strength is: " << player2.getAttackStrength() << std::endl;
-	player2.printInfo();
-	return 0;
-}

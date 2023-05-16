@@ -4,11 +4,11 @@ Card::Card(CardType type, const CardStats& stats) : m_effect(type), m_stats(stat
 
 void Card::applyEncounter(Player& player) const
 {
+	int playerAttack = player.getAttackStrength();
 	switch (this->m_effect)
 	{
 		case CardType::Battle:
 			printBattleCardInfo(this->m_stats);
-			int playerAttack = player.getAttackStrength();
 			if (playerAttack >= this->m_stats.force)
 			{
 				player.levelUp();
@@ -23,13 +23,17 @@ void Card::applyEncounter(Player& player) const
 			break;
 		case CardType::Buff:
 			printBuffCardInfo(this->m_stats);
-			player.pay(this->m_stats.cost);
-			player.buff(this->m_stats.buff);
+			if (player.pay(this->m_stats.cost))
+			{
+				player.buff(this->m_stats.buff);
+			}
 			break;
 		case CardType::Heal:
 			printHealCardInfo(this->m_stats);
-			player.pay(this->m_stats.cost);
-			player.heal(this->m_stats.heal);
+			if (player.pay(this->m_stats.cost))
+			{
+				player.heal(this->m_stats.heal);
+			}
 			break;
 		case CardType::Treasure:
 			printTreasureCardInfo(this->m_stats);
@@ -59,4 +63,27 @@ void Card::printInfo() const
 		default:
 			break;
 	}
+}
+
+//create a main function to test the class
+//create a player and some cards and test the class
+
+int main()
+{
+	Player player("Pesho", 100, 100);
+	player.printInfo();
+	CardStats stats(100, 100, 100, 100, 100, 35);
+	Card card(CardType::Battle, stats);
+	card.applyEncounter(player);
+	player.printInfo();
+	Card card2(CardType::Buff, stats);
+	card2.applyEncounter(player);
+	player.printInfo();
+	Card card3(CardType::Heal, stats);
+	card3.applyEncounter(player);
+	player.printInfo();
+	Card card4(CardType::Treasure, stats);
+	card4.applyEncounter(player);
+	player.printInfo();
+	return 0;
 }
