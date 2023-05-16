@@ -23,12 +23,12 @@ public:
 	* @return
 	*      A new instance of Player.
 	*/
-	Player(const Player& other);
+	Player(const Player& other) = default;
 
 	/*
 	* Destructor of Player class
 	*/
-	~Player();
+	~Player() = default;
 
 	/*
 	* Assignment Operator
@@ -100,7 +100,7 @@ public:
 	bool pay(const int coins);
 
 private: 
-	char* m_name;
+	std::string m_name;
 	int m_maxHp;
 	int m_healthPoints;
 	int m_force;

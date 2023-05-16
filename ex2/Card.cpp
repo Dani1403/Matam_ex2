@@ -85,5 +85,7 @@ int main()
 	Card card4(CardType::Treasure, stats);
 	card4.applyEncounter(player);
 	player.printInfo();	
+	Player player2 = player;
+	player2.printInfo();
 	return 0;
 }

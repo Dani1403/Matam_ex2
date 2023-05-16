@@ -24,6 +24,9 @@
     <ClCompile Include="ex2\Card.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex2\Mtmchkin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ex2\Player.h">
