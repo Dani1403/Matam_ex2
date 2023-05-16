@@ -136,6 +136,7 @@
     <ClInclude Include="ex2\Card.h" />
     <ClInclude Include="ex2\Player.h" />
     <ClInclude Include="ex2\utilities.h" />
+    <ClInclude Include="ex2\Mtmchkin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

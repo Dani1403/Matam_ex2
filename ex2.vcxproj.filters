@@ -35,5 +35,8 @@
     <ClInclude Include="ex2\Card.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ex2\Mtmchkin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
