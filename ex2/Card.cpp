@@ -65,9 +65,6 @@ void Card::printInfo() const
 	}
 }
 
-//create a main function to test the class
-//create a player and some cards and test the class
-
 int main()
 {
 	Player player("Pesho", 100, 100);

@@ -2,16 +2,9 @@
 #include "Player.h"
 
 
-Player::Player(const char* name, int maxHp, int force) :m_maxHp(maxHp), m_force(force), m_healthPoints(maxHp), m_coins(0), m_level(1)
+Player::Player(const char* name, int maxHp, int force) : m_name(std::string(name)), m_maxHp(maxHp), m_force(force), m_healthPoints(maxHp), m_coins(0), m_level(1)
 {
-	m_name = std::string(name);
 }
-
-//Player::Player(const Player& other) :
-//	m_maxHp(other.m_maxHp), m_force(other.m_force), m_healthPoints(other.m_healthPoints), m_coins(other.m_coins), m_level(other.m_level)
-//{
-//	m_name = std::string(other.m_name);
-//}
 
 Player& Player::operator=(const Player& other)
 {

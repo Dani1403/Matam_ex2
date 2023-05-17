@@ -57,11 +57,14 @@ public:
      */
     GameStatus getGameStatus() const;
 
+    //Add a constructor for customable players
     //TODO: complete the Mtmchkin class.
 
 private:
-    //TODO: complete the Mtmchkin class.
-
+    GameStatus m_gameStatus;
+    Card* m_cardsArray;
+    Player m_player;
+    int m_numOfCards;
 };
 
 
