@@ -3,7 +3,7 @@
 
 
 Player::Player(const char* name, int maxHp, int force) : 
-	m_name(std::string(name)), m_maxHp(maxHp), m_force(force), m_healthPoints(maxHp), m_coins(0), m_level(1)
+	m_name(std::string(name)), m_maxHp(maxHp), m_healthPoints(maxHp), m_force(force), m_level(1), m_coins(0)
 {
 }
 

@@ -57,8 +57,6 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //Add a constructor for customable players
-    //TODO: complete the Mtmchkin class.
 
 private:
     GameStatus m_gameStatus;
