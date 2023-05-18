@@ -1,9 +1,12 @@
 #include "Mtmchkin.h"
 
-Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) {}
+Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :
+	m_player(Player(playerName)),m_numOfCards(numOfCards), m_gameStatus(GameStatus::MidGame), m_cardsArray(cardsArray) {}
 
 
-void Mtmchkin::playNextCard(){}
+void Mtmchkin::playNextCard()
+{
+}
 
 bool Mtmchkin::isOver() const 
 {

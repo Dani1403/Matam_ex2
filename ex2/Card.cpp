@@ -8,7 +8,6 @@ void Card::applyEncounter(Player& player) const
 	switch (m_effect)
 	{
 		case CardType::Battle:
-			printBattleCardInfo(m_stats);
 			if (playerAttack >= m_stats.force)
 			{
 				player.levelUp();
@@ -22,21 +21,18 @@ void Card::applyEncounter(Player& player) const
 			}
 			break;
 		case CardType::Buff:
-			printBuffCardInfo(m_stats);
 			if (player.pay(m_stats.cost))
 			{
 				player.buff(m_stats.buff);
 			}
 			break;
 		case CardType::Heal:
-			printHealCardInfo(m_stats);
 			if (player.pay(m_stats.cost))
 			{
 				player.heal(m_stats.heal);
 			}
 			break;
 		case CardType::Treasure:
-			printTreasureCardInfo(m_stats);
 			player.addCoins(m_stats.loot);
 			break;
 		default:
