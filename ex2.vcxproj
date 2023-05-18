@@ -131,6 +131,7 @@
     <ClCompile Include="ex2\Card.cpp" />
     <ClCompile Include="ex2\Mtmchkin.cpp" />
     <ClCompile Include="ex2\Player.cpp" />
+    <ClCompile Include="ex2\test.cpp" />
     <ClCompile Include="ex2\utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +139,9 @@
     <ClInclude Include="ex2\Player.h" />
     <ClInclude Include="ex2\utilities.h" />
     <ClInclude Include="ex2\Mtmchkin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ex2\test_output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

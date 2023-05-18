@@ -27,6 +27,9 @@
     <ClCompile Include="ex2\Mtmchkin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ex2\test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ex2\Player.h">
@@ -41,5 +44,8 @@
     <ClInclude Include="ex2\Mtmchkin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ex2\test_output.txt" />
   </ItemGroup>
 </Project>
