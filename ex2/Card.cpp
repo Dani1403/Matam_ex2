@@ -60,25 +60,3 @@ void Card::printInfo() const
 			break;
 	}
 }
-
-int main()
-{
-	Player player("Pesho", 100, 100);
-	player.printInfo();
-	CardStats stats(100, 100, 100, 100, 100, 35);
-	Card card(CardType::Battle, stats);
-	card.applyEncounter(player);
-	player.printInfo();
-	Card card2(CardType::Buff, stats);
-	card2.applyEncounter(player);
-	player.printInfo();
-	Card card3(CardType::Heal, stats);
-	card3.applyEncounter(player);
-	player.printInfo();
-	Card card4(CardType::Treasure, stats);
-	card4.applyEncounter(player);
-	player.printInfo();	
-	Player player2 = player;
-	player2.printInfo();
-	return 0;
-}
