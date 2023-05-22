@@ -107,6 +107,4 @@ private:
 	int m_level;
 	int m_coins;
 };
-
-
 #endif

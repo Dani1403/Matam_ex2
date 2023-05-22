@@ -38,8 +38,3 @@ GameStatus Mtmchkin::getGameStatus() const
 		return GameStatus::MidGame;
 	}
 }
-
-int main()
-{
-	return 0;
-}
