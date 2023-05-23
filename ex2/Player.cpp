@@ -7,19 +7,6 @@ Player::Player(const char* name, int maxHp, int force) :
 {
 }
 
-Player& Player::operator=(const Player& other)
-{
-	if (this != &other)
-	{
-		m_name = other.m_name;
-		m_level = other.m_level;
-		m_force = other.m_force;
-		m_healthPoints = other.m_healthPoints;
-		m_coins = other.m_coins;
-	}
-	return *this;
-}
-
 void Player::printInfo() const
 {
 	printPlayerInfo(m_name.c_str(), m_level, m_force, m_healthPoints, m_coins);

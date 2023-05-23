@@ -1,9 +1,18 @@
 #include "Mtmchkin.h"
+const int MAX_LEVEL = 10;
 
 Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :
-	m_gameStatus(GameStatus::MidGame), m_cardsArray(cardsArray), m_player(Player(playerName)), m_numOfCards(numOfCards),
-	  m_currentCard(0) 
-{}
+	m_player(playerName)
+{
+	m_gameStatus = GameStatus::MidGame;
+	m_numOfCards = numOfCards;
+	m_cardsArray = new Card[numOfCards];
+	for (int card = 0; card < numOfCards; card++)
+	{
+		m_cardsArray[card] = cardsArray[card];
+	}
+	m_currentCard = 0;
+}
 
 
 void Mtmchkin::playNextCard()
@@ -29,7 +38,7 @@ GameStatus Mtmchkin::getGameStatus() const
 	{
 		return GameStatus::Loss;
 	}
-	else if (m_player.getLevel() == 10)
+	else if (m_player.getLevel() == MAX_LEVEL)
 	{
 		return GameStatus::Win;
 	}

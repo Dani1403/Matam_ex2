@@ -36,7 +36,7 @@ public:
 	* @return
 	*      A reference to this instance of Player.
 	*/
-	Player& operator=(const Player& other);
+	Player& operator=(const Player& other) = default;
 
 	/*
 	* Prints the player's info
