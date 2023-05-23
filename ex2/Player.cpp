@@ -2,9 +2,29 @@
 #include "Player.h"
 
 
-Player::Player(const char* name, int maxHp, int force) : 
-	m_name(std::string(name)), m_maxHp(maxHp), m_healthPoints(maxHp), m_force(force), m_level(1), m_coins(0)
+Player::Player(const char* name, int maxHp, int force)
 {
+	m_name = name;
+	m_level = START_LEVEL;
+	m_coins = START_COINS;
+	if (maxHp <= 0)
+	{
+		m_maxHp = DEFAULT_MAX_HP;
+		m_healthPoints = DEFAULT_MAX_HP;
+	}
+	else
+	{
+		m_maxHp = maxHp;
+		m_healthPoints = maxHp;
+	}
+	if (force <= 0)
+	{
+		m_force = DEFAULT_FORCE;
+	}
+	else
+	{
+		m_force = force;
+	}
 }
 
 void Player::printInfo() const
@@ -14,7 +34,10 @@ void Player::printInfo() const
 
 void Player::levelUp()
 {
-	m_level++;
+	if (m_level < MAX_LEVEL)
+	{
+		m_level++;
+	}
 }
 
 int Player::getLevel() const 
@@ -24,7 +47,10 @@ int Player::getLevel() const
 
 void Player::buff(const int force)
 {
-	m_force += force;
+	if (force > 0)
+{
+		m_force += force;
+	}
 }
 
 void Player::heal(const int hp)
@@ -53,7 +79,7 @@ void Player::damage(const int hp)
 
 bool Player::isKnockedOut() const
 {
-	return m_healthPoints == 0;
+	return m_healthPoints <= 0;
 }
 
 void Player::addCoins(const int coins)
@@ -66,12 +92,12 @@ void Player::addCoins(const int coins)
 
 bool Player::pay(const int coins)
 {
-	if (coins > 0 && m_coins >= coins)
+	if (m_coins - coins < 0)
 	{
-		m_coins -= coins;
-		return true;
+		return false;
 	}
-	return false;
+	m_coins -= coins;
+	return true;
 }
 
 int Player::getAttackStrength() const

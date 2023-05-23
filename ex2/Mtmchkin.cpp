@@ -1,30 +1,34 @@
 #include "Mtmchkin.h"
-const int MAX_LEVEL = 10;
 
 Mtmchkin::Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards) :
-	m_player(playerName)
+	m_player(playerName, DEFAULT_MAX_HP, DEFAULT_FORCE)
 {
 	m_gameStatus = GameStatus::MidGame;
 	m_numOfCards = numOfCards;
-	m_cardsArray = new Card[numOfCards];
-	for (int card = 0; card < numOfCards; card++)
+	m_cardsArray = new Card[m_numOfCards];
+	for (int card = 0; card < m_numOfCards; card++)
 	{
 		m_cardsArray[card] = cardsArray[card];
 	}
 	m_currentCard = 0;
 }
 
+Mtmchkin::~Mtmchkin()
+{
+	delete[] m_cardsArray;
+}
+
 
 void Mtmchkin::playNextCard()
 {
-	m_cardsArray[m_currentCard].printInfo();
-	m_cardsArray[m_currentCard].applyEncounter(m_player);
-	m_currentCard++;
 	if (m_currentCard == m_numOfCards)
 	{
 		m_currentCard = 0;
 	}
+	m_cardsArray[m_currentCard].printInfo();
+	m_cardsArray[m_currentCard].applyEncounter(m_player);
 	m_player.printInfo();
+	m_currentCard++;
 }
 
 bool Mtmchkin::isOver() const 

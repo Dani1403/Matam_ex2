@@ -2,6 +2,11 @@
 #define EX2_PLAYER_H
 
 #include "utilities.h"
+const int DEFAULT_FORCE = 5;
+const int DEFAULT_MAX_HP = 100;
+const int START_LEVEL = 1;
+const int START_COINS = 0;
+const int MAX_LEVEL = 10;
 
 class Player
 {
@@ -15,7 +20,7 @@ public:
 	* @return
 	*	     A new instance of Player.
 	*/
-	Player(const char* name, int maxHp = 100, int force = 5);
+	Player(const char* name, int maxHp = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
 
 	/*
 	* Copy Constructor of Player class
