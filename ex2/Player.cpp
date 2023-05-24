@@ -92,6 +92,10 @@ void Player::addCoins(const int coins)
 
 bool Player::pay(const int coins)
 {
+	if (coins < 0)
+	{
+		return true;
+	}
 	if (m_coins - coins < 0)
 	{
 		return false;
